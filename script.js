@@ -1,41 +1,47 @@
-const input = document.getElementById("todo-input");
-const addBtn = document.getElementById("add-btn");
-const list = document.getElementById("todo-list");
+ // ===== MOBILE MENU TOGGLE WITH ANIMATION =====
+function toggleMenu() {
+  const nav = document.getElementById("navMenu");
 
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-renderTasks();
+  if (nav.style.display === "flex") {
+    nav.style.opacity = "0";
+    nav.style.transform = "translateY(-10px)";
+    setTimeout(() => (nav.style.display = "none"), 200);
+  } else {
+    nav.style.display = "flex";
+    nav.style.opacity = "0";
+    nav.style.transform = "translateY(-10px)";
+    setTimeout(() => {
+      nav.style.opacity = "1";
+      nav.style.transform = "translateY(0)";
+    }, 20);
+  }
+}
 
-addBtn.addEventListener("click", () => {
-  if (input.value.trim() === "") return;
-  tasks.push(input.value);
-  saveTasks();
-  renderTasks();
-  input.value = "";
+// ===== PAGE FADE-IN EFFECT =====
+window.addEventListener("DOMContentLoaded", () => {
+  document.body.style.opacity = 0;
+  setTimeout(() => {
+    document.body.style.transition = "1s";
+    document.body.style.opacity = 1;
+  }, 100);
 });
 
-function deleteTask(index) {
-  tasks.splice(index, 1);
-  saveTasks();
-  renderTasks();
+// ===== BUTTON RIPPLE EFFECT =====
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("hero-btn") ||
+      e.target.classList.contains("project-btn") ||
+      e.target.classList.contains("contact-btn")) {
 
+    let ripple = document.createElement("span");
+    ripple.classList.add("ripple");
+    e.target.appendChild(ripple);
 
-  
-}
+    let x = e.clientX - e.target.getBoundingClientRect().left;
+    let y = e.clientY - e.target.getBoundingClientRect().top;
 
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
 
-function saveTasks() {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
-// Show tasks on screen
-function renderTasks() {
-  list.innerHTML = "";
-  tasks.forEach((task, index) => {
-    list.innerHTML += `
-      <li>
-        ${task}
-        <button class="delete-btn" onclick="deleteTask(${index})">X</button>
-      </li>
-    `;
-  });
-}
+    setTimeout(() => ripple.remove(), 600);
+  }
+});

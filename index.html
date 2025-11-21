@@ -3,70 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>home</title>
+  <title>siva naik Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
-
-  <header class="top-nav">
-    <h1 class="logo">Naik's Store</h1>
-    <nav>
+  <header class="header colorful">
+    <div class="logo">SIVA NAIK.M</div>
+    <nav id="navMenu" class="nav-links">
       <a href="index.html">Home</a>
-      <a href="wishlist.html">Wishlist</a>
-      <a href="cart.html" class="cart-link">
-        Cart (<span id="cart-count">0</span>)
-      </a>
-      <button id="theme-toggle" class="theme-btn">🌙</button>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
     </nav>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
   </header>
 
-  <main class="store-layout">
-
-    <!-- SIDEBAR FILTERS -->
-    <aside class="sidebar">
-      <h3>Filters</h3>
-
-      <div class="filter-group">
-        <h4>Category</h4>
-        <label><input type="radio" name="cat" value="all" checked> All</label>
-        <label><input type="radio" name="cat" value="mobile"> Mobiles</label>
-        <label><input type="radio" name="cat" value="laptop"> Laptops</label>
-        <label><input type="radio" name="cat" value="electronics"> Electronics</label>
-      </div>
-
-      <div class="filter-group">
-        <h4>Price</h4>
-        <label><input type="radio" name="price" value="all" checked> All</label>
-        <label><input type="radio" name="price" value="0-20000"> 0 - 20,000</label>
-        <label><input type="radio" name="price" value="20000-50000"> 20,000 - 50,000</label>
-        <label><input type="radio" name="price" value="50000-100000"> 50,000 - 1,00,000</label>
-      </div>
-
-      <div class="filter-group">
-        <h4>Rating</h4>
-        <label><input type="radio" name="rating" value="all" checked> All</label>
-        <label><input type="radio" name="rating" value="4"> ⭐ 4 & above</label>
-        <label><input type="radio" name="rating" value="4.5"> ⭐ 4.5 & above</label>
-      </div>
-
-      <button class="clear-btn" onclick="clearFilters()">Clear Filters</button>
-    </aside>
-
-    <!-- PRODUCTS AREA -->
-    <div class="container">
-      <input type="text" id="searchBar" placeholder="Search products..." />
-      <select id="sortFilter" class="sort-select">
-        <option value="default">Sort by</option>
-        <option value="priceLowHigh">Price: Low to High</option>
-        <option value="priceHighLow">Price: High to Low</option>
-        <option value="ratingHighLow">Rating: High to Low</option>
-      </select>
-
-      <div id="productList" class="product-list"></div>
+  <section class="hero-section">
+    <div class="hero-text">
+      <h1 class="hero-title">Hey, I'm <span>SIVA NAIK</span></h1>
+      <p class="hero-subtitle">Web Developer • CSE Student • Creative Builder • WordPress developer</p>
+      <a href="projects.html" class="hero-btn">Explore My Projects</a>
     </div>
+    <div class="hero-shape"></div>
+  </section>
+ 
+    
+<footer class="footer">
+  <div class="footer-row">
+    <p>© 2025 SIVA NAIK •&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ Developed by SIVA NAIK
+</p>
 
-  </main>
-
+    <div class="footer-socials">
+      <a href="https://github.com/yourprofile" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
   <script src="script.js"></script>
 </body>
 </html>
